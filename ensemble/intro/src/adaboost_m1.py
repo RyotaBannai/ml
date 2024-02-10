@@ -1,6 +1,5 @@
 import numpy as np
 
-import support
 from weighted import WeighedDecisionTree, WeighedZeroRule, w_gini
 
 
@@ -59,7 +58,9 @@ class AdaBoostM1:
             p = tree.predict(x)  # p はクラスの確率を表す二次元配列
             c = p.argmax(axis=1)  # c に分類されたクラスの番号
             for j in range(len(x)):
-                z[j, c[j]] += w[i]  # 分類されたクラスの位置に貢献度を加算,「合算値」であることに注意
+                z[j, c[j]] += w[
+                    i
+                ]  # 分類されたクラスの位置に貢献度を加算,「合算値」であることに注意
         return z  # クラスの属する可能性を表す配列として返す
 
     def __str__(self):
