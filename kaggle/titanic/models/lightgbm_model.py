@@ -16,7 +16,7 @@ import optuna
 import pandas as pd
 
 # 分布確認
-# import pandas_profiling as pdp
+import ydata_profiling as pdp
 from sklearn.metrics import accuracy_score, confusion_matrix, roc_auc_score
 from sklearn.model_selection import KFold, StratifiedKFold, train_test_split
 
@@ -140,8 +140,6 @@ def lightgbm_fit(*args, **kwargs) -> lgb.LGBMClassifier:
 # %%
 input_path = "../data/train.csv"
 test_path = "../data/test.csv"
-
-# %%
 df_train = pd.read_csv(input_path)
 df_train, cols = preprocess(input_df=df_train)
 x_train, y_train, id_train = (
@@ -171,7 +169,7 @@ print(f"acc(best)={trial.value}")
 print(trial.params)
 
 # %%
-# pdp.ProfileReport(df_train)#
+pdp.ProfileReport(df_train)
 
 # %%
 # submission 作成.
