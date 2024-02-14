@@ -1,0 +1,4 @@
+*/data/
+*.pyc
+*.pickle
+submission.csv
