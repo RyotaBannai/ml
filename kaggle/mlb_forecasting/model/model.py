@@ -332,8 +332,6 @@ def train_cv(
     df_metrics = pd.DataFrame(metrics, columns=["nfold", "target", "mae"])
     print("MCMAE: {:.4f}".format(df_metrics.mae.mean()))
 
-    ipdb.set_trace()
-
     # valid 推論値
     """
     ここで各行の "target{n}_fold{k}_{pred|true}" が１つだけ値があり、他がNaN になっているが、
